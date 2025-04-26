@@ -1,0 +1,44 @@
+/* Background and General Styles */
+.about-container {
+    max-width: 100%; /* Adjust max-width as needed */
+    margin-top: 2%;
+    padding: 30px;
+    text-align: center;
+    background: white;
+    color: black;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    position: relative;
+  }
+  
+  /* Title */
+  .about-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    color: #00076f;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Add a subtle text shadow */
+  }
+  
+  /* Section Cards */
+  .about-content {
+    padding: 0 20px;
+    text-align: left; /* Align content to the left */
+  }
+  
+  .about-content h2 {
+    color: #00076f;/* Match the title color */
+    margin-bottom: 15px;
+  }
+  
+  .about-content p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  .made-by {
+    font-style: italic;
+    text-align: center; /* Center the "Made by" section */
+    margin-top: 30px;
+    color:#333333
+  }

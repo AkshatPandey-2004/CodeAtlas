@@ -1,0 +1,28 @@
+/* UnderConstruction.css */
+.construction-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #ffffff;
+    color: #000000;
+    text-align: center;
+    font-family: Arial, sans-serif;
+  }
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+  
+  .construction-gif {
+    width: 200px; /* Adjust as needed */
+    height: auto;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    font-size: 1.2rem;
+  }
+  
