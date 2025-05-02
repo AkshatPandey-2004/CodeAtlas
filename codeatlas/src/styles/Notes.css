@@ -1,0 +1,271 @@
+/* ==============================
+   Base Page Styles
+   ============================== */
+   .notes-page {
+    padding: 50px 30px;
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    min-height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  }
+  
+  .notes-header {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 50px;
+    color: #2c3e50;
+    font-weight: 700;
+  }
+  
+  /* ==============================
+     Section & Title
+     ============================== */
+  .notes-section {
+    margin-bottom: 60px;
+    padding: 0 40px;
+    position: relative;
+  }
+  
+  .section-title {
+    font-size: 28px;
+    color: #34495e;
+    margin-bottom: 20px;
+    padding-left: 10px;
+    border-left: 5px solid #4e4eec;
+  }
+  
+  /* ==============================
+     Card Layout
+     ============================== */
+  .notes-carousel {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    padding: 0 10px 10px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+  
+  .note-card {
+    flex: 0 0 calc(100% / 4.5);
+    scroll-snap-align: start;
+    min-width: 250px;
+    min-height: 440px;
+    background: #fff;
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.12);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .note-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  .note-image-wrapper {
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    
+  }
+  
+  .note-image {
+    max-width: 100%;
+    min-height: 70px;
+    max-height: 250px;
+    object-fit:fill;
+    padding: 10px;
+  }
+  
+  .note-content {
+    padding: 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .note-card h3 {
+    font-size: 20px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 10px;
+  }
+  
+  .note-card p {
+    font-size: 14px;
+    color: #555;
+    flex-grow: 1;
+  }
+  
+  .view-btn {
+    margin-top: 20px;
+    padding: 10px 0;
+    background-color: #4e4eec;
+    color: white;
+    width: 100%;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .view-btn:hover {
+    background-color: #3737cc;
+  }
+  
+  /* ==============================
+     Fade-In Animation
+     ============================== */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease forwards;
+  }
+  
+  @keyframes fadeInUp {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* ==============================
+     Responsive Breakpoints
+     ============================== */
+  @media (max-width: 1024px) {
+    .note-card {
+      flex: 0 0 50%;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .note-card {
+      flex: 0 0 80%;
+    }
+  }
+  
+  /* ==============================
+     Swiper Carousel Overrides
+     ============================== */
+     .notes-section .swiper {
+        position: relative;      /* already set */
+        width: 100%;             /* full available inside its parent */
+        /* max-width: 100px;      */
+        height: 460px;
+        margin: 0 auto;          /* center horizontally */
+        padding: 0 0px;         /* keep room for arrows */
+        box-sizing: border-box;
+      }
+  /* .swiper {
+    width: 100%;
+    height: 100%;
+
+  } */
+  
+  .notes-section .swiper-button-prev,
+.notes-section .swiper-button-next {
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  color: #4e4eec;
+  z-index: 10;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  
+.notes-section .swiper-button-prev {
+    left: -11px;
+  }
+  
+  .notes-section .swiper-button-next {
+    right: -11px;
+  }
+  
+  .notes-section .swiper-button-prev::after,
+  .notes-section .swiper-button-next::after {
+    font-size: 16px;
+  }
+  .note-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.2s ease;
+    height: 100%;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .note-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .note-image-wrapper {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    padding: 0px;
+  }
+  
+  .note-image {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+  }
+  
+  .note-content {
+    padding: 16px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .note-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0 0 8px;
+  }
+  
+  .note-desc {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #555;
+    flex-grow: 1;
+    margin-bottom: 12px;
+  }
+  
+  .view-btn {
+    padding: 8px 12px;
+    background-color: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    align-self: start;
+  }
+  
+  .view-btn:hover {
+    background-color: #1d4ed8;
+  }

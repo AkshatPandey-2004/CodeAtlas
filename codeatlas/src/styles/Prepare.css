@@ -1,28 +1,184 @@
-/* UnderConstruction.css */
-.construction-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #ffffff;
-    color: #000000;
-    text-align: center;
-    font-family: Arial, sans-serif;
+.prepare-container {
+  padding: 70px 20px;
+  min-height: 720px;
+  text-align: center;
+  background: #f9fbff;
+}
+
+.prepare-title {
+  font-size: 2.7rem;
+  font-weight: bold;
+  background: linear-gradient(to right, #00076f, #4f83ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.prepare-subtitle {
+  font-size: 1.1rem;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.company-search {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-size: 1rem;
+  margin-bottom: 40px;
+  transition: border-color 0.3s;
+}
+
+.company-search:focus {
+  border-color: #4f83ff;
+  outline: none;
+}
+
+.company-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  justify-items: center;
+  padding: 0 10px;
+}
+
+.company-card {
+  background: linear-gradient(to bottom right, #868ea5, #78a4ef);
+  color: white;
+  padding: 30px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(0, 74, 173, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  border: none;
+  width: 100%;
+  max-width: 350px;
+}
+
+.company-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 32px rgba(79, 131, 255, 0.25);
+}
+
+.company-card h3 {
+  margin-top: 18px;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.company-logo {
+  width: 85px;
+  height: 85px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.company-card:hover .company-logo {
+  transform: scale(1.1);
+}
+
+.no-results {
+  grid-column: 1/-1;
+  font-size: 1.1rem;
+  color: #999;
+  margin-top: 20px;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (max-width: 1200px) {
+  .company-grid {
+    grid-template-columns: repeat(3, 1fr);
   }
-  
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 900px) {
+  .company-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
-  
-  .construction-gif {
-    width: 200px; /* Adjust as needed */
-    height: auto;
-    margin-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+  .company-grid {
+    grid-template-columns: 1fr;
   }
-  
-  p {
-    font-size: 1.2rem;
-  }
-  
+}
+
+.logo1-container {
+  /* height: 90px;
+  width: 90px; */
+  margin: 0 auto 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  color: #78a4ef;
+  border-radius: 16px;
+  padding: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.company-logo {
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+.company-logo {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.company-card:hover .company-logo {
+  transform: scale(1.08);
+}
+
+.company-card h3 {
+  margin: 10px 0 0;
+  font-size: 1.1rem;
+  color: #efecec;
+  font-weight: 600;
+}
+.company-search {
+  padding: 12px 20px;
+  width: 100%;
+  max-width: 400px;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  margin: 0 auto 40px;
+  display: block;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  background: #fff;
+  color: #333;
+}
+
+.company-search::placeholder {
+  color: #999;
+}
+
+.company-search:focus {
+  border: none;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(79, 131, 255, 0.3);
+}
+@keyframes popIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.company-search {
+  animation: popIn 0.4s ease-in-out;
+}

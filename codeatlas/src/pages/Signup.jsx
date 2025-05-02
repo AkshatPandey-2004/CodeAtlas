@@ -49,7 +49,7 @@ const Signup = () => {
         // const navigate = useNavigate();
         // Redirect to homepage after 2 seconds
         setTimeout(() => {
-          window.location.href = "/"; // Redirect to homepage after 2 seconds
+          window.location.href = "/login"; // Redirect to homepage after 2 seconds
         }, 2000);
       } else {
         // setMessage("Signup failed. Please try again.");

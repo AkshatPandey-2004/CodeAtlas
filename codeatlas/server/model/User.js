@@ -21,12 +21,12 @@ const UserSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    leetcodeProfile: {
+    leetcodeUsername: {
       type: String,
       default: "",
       trim: true,
     },
-    gfgProfile: {
+    gfgUsername: {
       type: String,
       default: "",
       trim: true,

@@ -1,19 +1,23 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/Account.css";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useNavigate } from "react-router-dom"; // ✅ Make sure you import this
 
 const Account = () => {
   const [formData, setFormData] = useState({
     username: "",
-    leetcodeProfile: "",
-    gfgProfile: "",
+    email: "",
+    leetcodeUsername: "",
+    gfgUsername: "",
   });
-
-  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [updating, setUpdating] = useState(false);
 
   const token = localStorage.getItem("token");
+  const navigate = useNavigate(); // ✅ Move outside so it's globally accessible
 
-  // 🔄 Load user data (optional)
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -22,11 +26,14 @@ const Account = () => {
         });
         setFormData({
           username: res.data.username || "",
-          leetcodeProfile: res.data.leetcodeProfile || "",
-          gfgProfile: res.data.gfgProfile || "",
+          email: res.data.email || "",
+          leetcodeUsername: res.data.leetcodeUsername || "",
+          gfgUsername: res.data.gfgUsername || "",
         });
       } catch (err) {
-        console.error("Failed to load profile");
+        toast.error("Failed to load profile!");
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -37,38 +44,109 @@ const Account = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    localStorage.removeItem("token");
+
+    toast.success("Logged out successfully!", {
+      position: "top-right",
+      autoClose: 3000,
+      theme: "colored",
+    });
+
+    setTimeout(() => {
+      navigate("/login");
+      window.location.reload();
+    }, 3000);
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.put(
+      setUpdating(true);
+      await axios.put(
         "http://localhost:5000/api/user/update",
-        formData,
+        {
+          username: formData.username,
+          leetcodeUsername: formData.leetcodeUsername,
+          gfgUsername: formData.gfgUsername,
+        },
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       );
-      setMessage("Profile updated successfully!");
+      toast.success("Profile updated successfully!");
     } catch (err) {
-      setMessage("Error updating profile.");
+      toast.error("Error updating profile!");
+    } finally {
+      setUpdating(false);
     }
   };
 
+  if (loading) {
+    return (
+      <div className="account-loading">
+        <div className="spinner"></div>
+        <p>Loading Profile...</p>
+      </div>
+    );
+  }
+
   return (
-    <div className="account-container">
-      <h2>My Account</h2>
-      <form onSubmit={handleSubmit}>
-        <label>Username</label>
-        <input name="username" value={formData.username} onChange={handleChange} />
+    <div className="account-wrapper">
+      <ToastContainer />
+      <div className="account-card">
+        <div className="account-sidebar">
+          <div className="profile-avatar">
+            {formData.username.charAt(0).toUpperCase()}
+          </div>
+          <h3>{formData.username}</h3>
+          <p>{formData.email}</p>
+        </div>
 
-        <label>LeetCode Profile URL</label>
-        <input name="leetcodeProfile" value={formData.leetcodeProfile} onChange={handleChange} />
+        <div className="account-details">
+          <h2>Edit Profile</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="form-group">
+              <label>Username</label>
+              <input
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                required
+              />
+            </div>
 
-        <label>GFG Profile URL</label>
-        <input name="gfgProfile" value={formData.gfgProfile} onChange={handleChange} />
+            <div className="form-group">
+              <label>LeetCode Profile URL</label>
+              <input
+                name="leetcodeUsername"
+                value={formData.leetcodeUsername}
+                onChange={handleChange}
+                placeholder="https://leetcode.com/yourUsername"
+              />
+            </div>
 
-        <button type="submit">Update</button>
-      </form>
-      {message && <p className="msg">{message}</p>}
+            <div className="form-group">
+              <label>GFG Profile URL</label>
+              <input
+                name="gfgUsername"
+                value={formData.gfgUsername}
+                onChange={handleChange}
+                placeholder="https://www.geeksforgeeks.org/yourUsername/"
+              />
+            </div>
+
+            <button type="submit" disabled={updating}>
+              {updating ? "Updating..." : "Save Changes"}
+            </button>
+
+            <button type="button" onClick={handleLogout} className="logout-btn">
+  Logout
+</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/About.css";
+import { FaLightbulb, FaHistory, FaRocket, FaUsers } from "react-icons/fa";
 
 const About = () => {
   return (
@@ -7,104 +8,38 @@ const About = () => {
       <h1 className="about-title">About Us</h1>
 
       <div className="about-content">
-        <h2>Introduction</h2>
-        <p>
-          CodeAtlas is a web-based application built using the MERN stack that
-          combines the features of Javatpoint, W3Schools, and LeetCode. The
-          platform helps professionals and students excel in computer science by
-          offering coding practice, structured learning materials, and a ranking
-          system. It provides notes, roadmaps, and content in various fields,
-          such as Cloud Computing, AI/ML, DevOps, and more. Additionally, it
-          tracks users' progress across different coding platforms and ranks them
-          on a leaderboard based on their performance.
-        </p>
+        <div className="about-section">
+          <h2><FaLightbulb className="icon" /> Introduction</h2>
+          <p>
+            CodeAtlas is a web-based MERN application that merges the strengths of platforms like Javatpoint, W3Schools, and LeetCode. It provides comprehensive learning materials, coding challenges, and a performance-based ranking system. The platform covers various domains such as Cloud Computing, AI/ML, and DevOps while tracking user progress across multiple platforms.
+          </p>
+        </div>
 
-        <h2>Background Information</h2>
-        <p>
-          Technical education and interview preparation require structured
-          resources for effective learning and problem-solving. Existing
-          platforms like LeetCode, CodeForces, and HackerRank focus on coding
-          challenges but lack in-depth conceptual explanations. Meanwhile,
-          Javatpoint, W3Schools, and GeeksForGeeks provide broad theoretical
-          content but do not integrate hands-on coding practice or progress
-          tracking.
-          <br />
-          <br />
-          Switching between platforms disrupts learning continuity for students
-          and professionals preparing for technical roles. Finding a centralized
-          system that offers subject-specific guidance, coding challenges, and
-          real-time performance tracking remains a challenge. Additionally,
-          structured roadmaps tailored to career paths like DevOps, AI/ML, and
-          Cloud Computing are often missing.
-          <br />
-          <br />
-          CodeAtlas aims to bridge these gaps by combining theoretical
-          instruction, coding practice, and ranking systems into a single,
-          comprehensive platform. With structured roadmaps, a personal progress
-          tracker, and a leaderboard compiling user performance across multiple
-          platforms, CodeAtlas is designed to be a one-stop learning solution
-          for computer science enthusiasts.
-        </p>
+        <div className="about-section">
+          <h2><FaHistory className="icon" /> Background</h2>
+          <p>
+            Learning technical concepts and preparing for interviews requires both theory and hands-on practice. Platforms like LeetCode focus on coding, while others like W3Schools offer theory without progress tracking. Switching disrupts learning. CodeAtlas combines all essential features into one platform—structured roadmaps, practice questions, and a dynamic leaderboard—to offer a cohesive learning experience.
+          </p>
+        </div>
 
-        <h2>Motivation</h2>
-        <p>
-          CodeAtlas was developed to address the need for a unified and
-          structured learning platform in Computer Science. With numerous
-          resources scattered across different websites, students and
-          professionals often struggle to follow a systematic learning path. The
-          lack of well-organized roadmaps for fields like DevOps, Cloud
-          Computing, and AI/ML, along with the inability to track coding
-          progress across multiple platforms, creates a significant challenge.
-          <br />
-          <br />
-          To solve this, CodeAtlas integrates structured learning materials,
-          coding challenges, and a ranking system that encourages users to
-          improve their problem-solving skills. Inspired by platforms like
-          Javatpoint, W3Schools, and LeetCode, it combines theoretical content
-          with practical coding exercises. Furthermore, it tracks users’
-          performance on competitive coding platforms like LeetCode, HackerRank,
-          and GeeksForGeeks, ranking them on a leaderboard to foster motivation
-          and competition.
-          <br />
-          <br />
-          Beyond its functionality, the development of CodeAtlas has also helped
-          our team enhance our expertise in full-stack development using the
-          MERN stack. This project has strengthened our skills in database
-          management, real-time ranking algorithms, API development,
-          authentication, and data handling. Our goal is to continuously improve
-          CodeAtlas by integrating user feedback, expanding content, and
-          refining our ranking system to make the platform more engaging and
-          reliable.
-        </p>
+        <div className="about-section">
+          <h2><FaRocket className="icon" /> Motivation</h2>
+          <p>
+            We saw a gap in unified learning platforms and created CodeAtlas to solve it. With features like coding practice, real-time tracking, and theoretical resources, it provides a complete educational journey. This project also strengthened our skills in full-stack development using the MERN stack, APIs, and data handling.
+          </p>
+        </div>
 
-        <h2>Our Contribution</h2>
-        <p>
-          CodeAtlas enhances technical education by providing structured
-          learning materials, notes, and roadmaps for professionals and
-          students. Covering topics such as DevOps, AI/ML, and Cloud Computing,
-          the platform simplifies learning and career navigation. It also offers
-          comprehensive technical interview preparation, ensuring users build
-          confidence and perform well in job interviews.
-          <br />
-          <br />
-          To encourage skill development, CodeAtlas features a competitive
-          coding leaderboard that tracks user progress across platforms like
-          LeetCode, HackerRank, and GeeksForGeeks. This ranking system fosters
-          healthy competition and continuous learning. Users can also set
-          personal learning goals, monitor their progress in real time, and stay
-          updated with the latest advancements in technology.
-          <br />
-          <br />
-          By bridging the gap between theoretical knowledge and practical
-          application, CodeAtlas makes technical education more accessible,
-          engaging, and effective for aspiring developers and professionals.
-        </p>
+        <div className="about-section">
+          <h2><FaUsers className="icon" /> Our Contribution</h2>
+          <p>
+            CodeAtlas simplifies tech education with structured notes, roadmaps, interview prep tools, and competitive coding leaderboards. It promotes consistent learning, helps set personal goals, and ensures learners stay ahead in the rapidly evolving tech landscape.
+          </p>
+        </div>
 
-        <p className="made-by">
-          Made by
-          <br />
-          Akshat Pandey & Madhav Madan
-        </p>
+        <div className="made-by">
+          <p>Created by</p>
+          <h3>Akshat Pandey & Madhav Madan</h3>
+        </div>
       </div>
     </div>
   );

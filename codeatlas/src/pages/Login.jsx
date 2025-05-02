@@ -24,6 +24,7 @@ const Login = () => {
       if (response.status === 200) {
         // ✅ Save token in localStorage
         localStorage.setItem("token", response.data.token);
+        localStorage.setItem("user", JSON.stringify(response.data.user));
   
         toast.success("Login Successful!", {
           position: "top-right",
@@ -37,7 +38,7 @@ const Login = () => {
         });
   
         setTimeout(() => {
-          window.location.href = "/"; // Redirect after login
+          window.location.href = "/home"; // Redirect after login
         }, 3000);
       }
     } catch (error) {

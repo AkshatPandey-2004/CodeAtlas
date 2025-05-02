@@ -18,11 +18,11 @@ router.get("/me", authenticate, async (req, res) => {
 
 // Update user's profile
 router.put("/update", authenticate, async (req, res) => {
-  const { username, leetcodeProfile, gfgProfile } = req.body;
+  const { username, leetcodeUsername, gfgUsername } = req.body;
   try {
     const updatedUser = await User.findByIdAndUpdate(
       req.user.id,
-      { username, leetcodeProfile, gfgProfile },
+      { username, leetcodeUsername, gfgUsername },
       { new: true, runValidators: true }
     ).select("-password");
     res.status(200).json(updatedUser);

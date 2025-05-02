@@ -15,8 +15,8 @@ router.get("/", async (req, res) => {
         let gfgSolved = 0;
 
         // 📘 Get LeetCode username from profile URL
-        if (user.leetcodeProfile) {
-          const leetUsername = user.leetcodeProfile.split("/").filter(Boolean).pop();
+        if (user.leetcodeUsername) {
+          const leetUsername = user.leetcodeUsername//.split("/").filter(Boolean).pop();
           try {
             const leetRes = await axios.get(`https://leetcode-api-faisalshohag.vercel.app/${leetUsername}`);
             leetcodeSolved = leetRes.data.totalSolved || 0;
@@ -26,8 +26,8 @@ router.get("/", async (req, res) => {
         }
 
         // 📗 Get GFG username from profile URL
-        if (user.gfgProfile) {
-          const gfgUsername = user.gfgProfile.split("/").filter(Boolean).pop();
+        if (user.gfgUsername) {
+          const gfgUsername = user.gfgUsername//.split("/").filter(Boolean).pop();
           try {
             const gfgRes = await axios.get(`https://geeks-for-geeks-api.vercel.app/${gfgUsername}`);
             gfgSolved = parseInt(gfgRes.data.info?.totalProblemsSolved || 0);

@@ -1,4 +1,6 @@
-import {  BrowserRouter as Router,Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css"; // Make sure you import the CSS
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
@@ -13,6 +15,9 @@ import "./styles/App.css";
 import CloudRoadmap from "./pages/roadmaps/CloudRoadmap";
 import AimlRoadmap from "./pages/roadmaps/AimlRoadmap";
 import MyAccount from "./pages/Account";
+import CompanyPage from "./pages/CompanyPage";
+import NoteViewer from "./pages/NoteViewer";
+
 
 
 const App = () => {
@@ -21,13 +26,17 @@ const App = () => {
   return (
     <div>
       {showNavbar && <Navbar />}
+          <ToastContainer/>
           <Routes>
-            <Route path="/" element={<Home />} />
+          <Route path="/" element={<Navigate to="/login" />} />
+          <Route path="/notes/view/:gdriveId" element={<NoteViewer />} />
+            <Route path="/home" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/roadmap" element={<Roadmap />} />
             <Route path="/notes" element={<Notes />} />
             <Route path="/login" element={<Login />} />
             <Route path="/prepare" element={<Prepare />} />
+            <Route path="/prepare/:slug" element={<CompanyPage />} />
             <Route path="/signup" element={<Signup />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/account" element={<MyAccount />} />

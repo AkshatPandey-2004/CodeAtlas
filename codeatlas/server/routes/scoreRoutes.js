@@ -14,15 +14,15 @@ router.get("/refresh", async (req, res) => {
       let gfgSolved = 0;
 
       // Leetcode API call
-      if (user.leetcodeProfile) {
-        const username = user.leetcodeProfile.split("/").filter(Boolean).pop();
+      if (user.leetcodeUsername) {
+        const username = user.leetcodeUsername//.split("/").filter(Boolean).pop();
         const leetRes = await axios.get(`https://leetcode-api-faisalshohag.vercel.app/${username}`);
         leetcodeSolved = leetRes.data?.totalSolved || 0;
       }
 
       // GFG API call
-      if (user.gfgProfile) {
-        const username = user.gfgProfile.split("/").filter(Boolean).pop();
+      if (user.gfgUsername) {
+        const username = user.gfgProfile//.split("/").filter(Boolean).pop();
         const gfgRes = await axios.get(`https://geeks-for-geeks-api.vercel.app/${username}`);
         gfgSolved = parseInt(gfgRes.data?.info?.totalProblemsSolved) || 0;
       }

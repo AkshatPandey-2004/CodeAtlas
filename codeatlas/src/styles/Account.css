@@ -1,50 +1,184 @@
-.account-container {
-    max-width: 500px;
-    margin: 5% auto;
-    padding: 30px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  }
-  
-  .account-container h2 {
-    text-align: center;
-    margin-bottom: 20px;
-    color: #1a1a1a;
-  }
-  
-  .account-container form {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .account-container label {
-    font-weight: 500;
-    margin-top: 10px;
-  }
-  
-  .account-container input {
-    padding: 10px;
-    margin-top: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-  }
-  
-  .account-container button {
-    margin-top: 20px;
-    padding: 12px;
-    background: #1a1a1a;
-    color: white;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-  }
-  
-  .msg {
-    text-align: center;
-    margin-top: 15px;
-    font-weight: 600;
-    color: green;
-  }
-  
+.account-wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to right, #566aa6, #152e87, #566aa6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.account-card {
+  display: flex;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  width: 80%;
+  max-width: 900px;
+}
+
+.account-sidebar {
+  background: #004466;
+  color: white;
+  padding: 40px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 35%;
+}
+
+.profile-avatar {
+  width: 90px;
+  height: 90px;
+  background: #007bff;
+  border-radius: 50%;
+  font-size: 36px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.account-sidebar h3 {
+  margin: 10px 0 5px;
+}
+
+.account-sidebar p {
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+.account-details {
+  padding: 40px;
+  width: 65%;
+}
+
+.account-details h2 {
+  margin-bottom: 20px;
+  font-size: 26px;
+  color: #1a1a1a;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+form button {
+  padding: 12px;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+form button:hover {
+  background: #0056b3;
+}
+
+.account-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 5px solid #ccc;
+  border-top: 5px solid #004466;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+form label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #333;
+  margin-bottom: 6px;
+  position: relative;
+  padding-left: 4px;
+  transition: all 0.3s ease;
+}
+
+.form-group:hover label {
+  color: #007bff;
+}
+
+form input {
+  padding: 12px 14px;
+  border-radius: 8px;
+  border: 1.5px solid #ccc;
+  color: #000000;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background-color: #f9f9f9;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+form input:focus {
+  border-color: #007bff;
+  background-color: #fff;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.2);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.logout-btn {
+  padding: 12px;
+  background-color: #dc3545; /* Bootstrap's danger red */
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+  margin-top: 10px;
+}
+
+.logout-btn:hover {
+  background-color: #c82333;
+  transform: scale(1.02);
+}
+
+.logout-btn:active {
+  transform: scale(0.98);
+  background-color: #a71d2a;
+}
+

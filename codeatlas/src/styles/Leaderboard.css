@@ -1,33 +1,93 @@
-.leaderboard-container {
-    padding: 40px;
-    max-width: 800px;
-    margin: auto;
-    text-align: center;
-  }
-  
-  .leaderboard-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-    background: white;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 0 15px rgba(0,0,0,0.1);
-  }
-  
-  .leaderboard-table th,
-  .leaderboard-table td {
-    color: #333;
-    padding: 12px 20px;
-    border-bottom: 1px solid #ddd;
-  }
-  
-  .leaderboard-table th {
-    background-color: #f3f4f6;
-    color: #333;
-  }
-  
-  .leaderboard-table tr:nth-child(even) {
-    background-color: #f9f9f9;
-  }
-  
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(145deg, #e0f2f1, #ede7f6);
+}
+
+.leaderboard-background {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 100vh;
+  padding: 60px 20px;
+}
+
+.leaderboard-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  padding: 32px;
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 900px;
+}
+
+.leaderboard-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #1e293b;
+  margin-bottom: 30px;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table th,
+.leaderboard-table td {
+  padding: 16px 20px;
+  text-align: center;
+  color: #1e293b;
+}
+
+.leaderboard-table th {
+  background-color: #f3f4f6;
+  color: #374151;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.leaderboard-row {
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.leaderboard-row:hover {
+  background-color: #f0fdf4;
+  transform: scale(1.01);
+}
+
+.user-cell {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  justify-content: center;
+}
+
+.avatar {
+  background-color: #4f46e5;
+  color: white;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: bold;
+}
+
+.gold {
+  background-color: #fff9c4;
+  font-weight: bold;
+}
+
+.silver {
+  background-color: #e0e0e0;
+  font-weight: bold;
+}
+
+.bronze {
+  background-color: #ffe0b2;
+  font-weight: bold;
+}
